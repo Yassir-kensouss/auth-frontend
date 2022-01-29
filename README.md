@@ -8,7 +8,9 @@ This repository containing all the necessary pages for an auth system :
 
 The whole application was built with **styled-component** in order to provide a structured code, which means every page has it's own unique styling in a seperate .js file, furthermore styled-component generates the css vendor prefixes which is important to get a full **browser compatibility**.
 
-The application is consuming a REST Api which I built using Node JS and it's framework Express JS ofcourse with the help of some packages such as **Jsonwebtoken, express-jwt, express-validator
+The application is consuming a REST Api which I built using Node JS and it's framework Express JS ofcourse with the help of some packages such as **Jsonwebtoken, express-jwt, express-validator**
+
+Link For this repository: [backend repo](https://github.com/Yassir-kensouss/auth-backend.git)
 
 !! This template is not responsive yet it's recommanded to run it in a desktop view
 
