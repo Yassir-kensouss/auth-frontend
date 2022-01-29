@@ -1,5 +1,6 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import { useHistory } from "react-router";
+import { ThemeProvider } from "styled-components";
 import Container from "../../components/container/Container";
 import { colors } from "../../global styles/Global";
 

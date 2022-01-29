@@ -40,7 +40,6 @@ export const Col3 = styled.div`
   justify-self: end;
   .register {
     font-family: "Roboto", sans-serif;
-
     font-size: 0.95rem;
     font-weight: 500;
     color: white;
@@ -62,3 +61,16 @@ export const Col3 = styled.div`
   }
 `;
 export const Button = styled.span``;
+export const SignOut = styled.span`
+  font-family: "Roboto", sans-serif;
+  margin-right: 1.5em;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: ${(props) => props.theme.text_title};
+  transition: 0.2s color ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    color: ${(props) => props.theme.primary};
+  }
+`;

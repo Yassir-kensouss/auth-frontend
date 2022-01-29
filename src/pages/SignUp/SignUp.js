@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { Link } from "react-router-dom";
 import { colors } from "../../global styles/Global";
 import { useHistory } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { IoCloseSharp } from "react-icons/io5";
+import { API_URL } from "../../config";
+
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 // Import components tyles
 import {
@@ -15,7 +19,6 @@ import {
   Center,
   Logo,
   FormWrap,
-  Form,
   InputDiv,
   Input,
   Submit,
@@ -25,7 +28,58 @@ import {
 
 const SignUp = () => {
   const history = useHistory();
+  const MySwal = withReactContent(Swal);
+  const [user, setUser] = useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+    password: "",
+  });
 
+  // Handle form fields
+  const handleChange = (e) => {
+    setUser({ ...user, [e.target.id]: e.target.value });
+  };
+
+  // Handle submition
+  const handleSubmition = (e) => {
+    e.preventDefault();
+
+    fetch(`${API_URL}/signup`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.error) {
+          MySwal.fire({
+            icon: "error",
+            title: res.error,
+            showConfirmButton: false,
+          });
+        } else {
+          MySwal.fire({
+            icon: "success",
+            title: "You account has been created successfully",
+            showConfirmButton: false,
+          });
+          history.push("/signin");
+        }
+      })
+      .catch((err) => {
+        MySwal.fire({
+          icon: "error",
+          title: "Please Recheck your form (email must be unique)",
+          showConfirmButton: false,
+        });
+      });
+  };
+
+  // Go back to previous page
   const handleClick = () => {
     history.goBack();
   };
@@ -37,21 +91,41 @@ const SignUp = () => {
             <Center>
               <Logo src={logo} />
               <FormWrap>
-                <Form>
+                <form onSubmit={handleSubmition}>
                   <InputDiv>
-                    <Input type='text' placeholder='First Name' />
+                    <Input
+                      type='text'
+                      placeholder='First Name'
+                      id='first_name'
+                      onChange={handleChange}
+                    />
                   </InputDiv>
                   <InputDiv>
-                    <Input type='text' placeholder='Last Name' />
+                    <Input
+                      type='text'
+                      placeholder='Last Name'
+                      id='last_name'
+                      onChange={handleChange}
+                    />
                   </InputDiv>
                   <InputDiv>
-                    <Input type='email' placeholder='Email' />
+                    <Input
+                      type='email'
+                      placeholder='Email'
+                      id='email'
+                      onChange={handleChange}
+                    />
                   </InputDiv>
                   <InputDiv>
-                    <Input type='password' placeholder='password' />
+                    <Input
+                      type='password'
+                      placeholder='password'
+                      id='password'
+                      onChange={handleChange}
+                    />
                   </InputDiv>
-                  <Submit type='submit'>Register</Submit>
-                </Form>
+                  <Submit>Register</Submit>
+                </form>
               </FormWrap>
               <AHA>
                 Already have an account ? <Link to='/signin'>Login</Link>
