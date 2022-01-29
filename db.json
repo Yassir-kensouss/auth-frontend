@@ -1,0 +1,67 @@
+{
+  "superheroes": [
+    {
+      "id": 1,
+      "name": "Batman dark wefwefewe vvvv",
+      "alterEgo": "Bruce Wayne"
+    },
+    {
+      "id": 2,
+      "name": "Superman",
+      "alterEgo": "Clark Kent"
+    },
+    {
+      "id": 3,
+      "name": "the Wonder Woman",
+      "alterEgo": "Princess Diana"
+    }
+  ],
+  "Friends": [
+    {
+      "id": 1,
+      "name": "chandler bing"
+    },
+    {
+      "id": 2,
+      "name": "Samir benlams"
+    },
+    {
+      "id": 3,
+      "name": "yousra safsaf"
+    }
+  ],
+  "colors": [
+    {
+      "id": 1,
+      "name": "red"
+    },
+    {
+      "id": 2,
+      "name": "blue"
+    },
+    {
+      "id": 3,
+      "name": "green"
+    },
+    {
+      "id": 4,
+      "name": "yellow"
+    },
+    {
+      "id": 5,
+      "name": "brown"
+    },
+    {
+      "id": 6,
+      "name": "purple"
+    },
+    {
+      "id": 7,
+      "name": "pink"
+    },
+    {
+      "id": 8,
+      "name": "cyan"
+    }
+  ]
+}
